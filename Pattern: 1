@@ -1,0 +1,27 @@
+#include <stdio.h>
+int num = 5;
+int k;
+int
+main ()
+{
+
+  for (int i = 1; i <= 5; i++)
+    { k=0;
+      for (int space = 0; space < i - 1; space++)
+	{
+	  printf (" ");
+	}
+      while (k != 2 * num - 1)
+	{
+	  printf ("*");
+	  ++k;
+	}
+      --num;
+      printf ("\n");
+
+
+    }
+  return 0;
+}
+
+
