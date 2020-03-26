@@ -1,0 +1,71 @@
+#include<stdio.h>
+
+int main()
+{
+	int taylor =13;
+	
+	char swift = 'l';
+	
+	double selena = 22.20;
+	
+	float gomez =13.20;
+	
+	int *Ptaylor = &taylor;
+	
+	char *Pswift = &swift;
+	
+	double *Pselena = &selena;
+	
+	float *Pgomez = &gomez;
+	
+	printf("The address of Int is 0x%x \n", &taylor);
+	
+	printf("The address of Char is 0x%x \n", &swift);
+	
+	printf("The address of Double is 0x%x \n", &selena);
+	
+	printf("The address of Float is 0x%x \n", &gomez);
+	
+	printf("The address of Int Ptr is 0x%x \n", &Ptaylor);
+	
+	printf("The address of Char Ptr is 0x%x \n", &Pswift);
+	
+	printf("The address of Double Ptr is 0x%x \n", &Pselena);
+	
+	printf("The address of Float Ptr is 0x%x \n", &Pgomez);
+	
+	printf("The value of Int is %d \n", taylor);
+	
+	printf("The value of Char is %c \n", swift);
+	
+	printf("The value of Double is %lf \n", selena);
+	
+	printf("The value of Float is %f \n", gomez);
+	
+	printf("The value of Int Ptr is 0x%x \n", Ptaylor);
+	
+	printf("The value of Char Ptr is 0x%x \n", Pswift);
+	
+	printf("The value of Double Ptr is 0x%x \n", Pselena);
+	
+	printf("The value of Float Ptr is 0x%x \n", Pgomez);
+	
+	printf("The size of Int is %ld byte \n", sizeof(taylor));
+	
+	printf("The size of Char is %ld byte \n", sizeof(swift));
+	
+	printf("The size of Double is %ld byte \n", sizeof(selena));
+	
+	printf("The size of Float is %ld byte \n", sizeof(gomez));
+	
+	printf("The size of Int Ptr is %ld byte \n", sizeof(Ptaylor));
+	
+	printf("The size of Char Ptr is %ld byte \n", sizeof(Pswift));
+	
+	printf("The size of Double Ptr is %ld byte \n", sizeof(Pselena));
+	
+	printf("The size of Float Ptr is %ld byte \n", sizeof(Pgomez));
+	
+	
+		return 0;
+}
