@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main()
+{
+int a=7;
+int b=2;
+int c=9;
+int temp=0;
+int *Pa=&a;
+int *Pb=&b;
+int *Pc=&c;
+printf("%d,%d,%d \n",*Pa,*Pb,*Pc);
+temp= *Pb;
+*Pb=*Pa;
+*Pa=temp;
+temp= *Pc;
+*Pc=*Pa;
+*Pa=temp;
+printf("%d,%d,%d",*Pa,*Pb,*Pc);
+
+		return 0;
+}
