@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+
+void foo1(int xval)
+{
+	int x;
+	x=xval;
+	printf("Value is %d,Address is 0x%x \n",x,&x);
+}
+
+void foo2(int dummy)
+{
+    int y;
+    y=dummy;
+	printf("Value is %d,Address is 0x%x \n",y,&y);	
+}
+
+int main()
+{
+foo1(7);
+foo2(11);
+return 0;
+}
