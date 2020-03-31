@@ -1,0 +1,18 @@
+#include<stdio.h>
+int fact(int );
+int main()
+{
+int t;
+printf("Please enter a number ");
+scanf("%d",&t);
+printf("Factorial of entered number is %d",fact(t));
+return 0;
+}
+
+int fact(int s)
+{
+while(s>1)
+{
+return s*fact(s-1);
+}
+}
