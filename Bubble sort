@@ -1,0 +1,46 @@
+BubbleSort
+Navjot Singh
+C0770551
+
+#include <stdio.h>         //Header file
+#include <stdlib.h>        
+//#include "my_func.h"
+
+
+void dispArray(int s[], size_t N){     //function to print an array
+    for(int i=0;i<N;i++){              //for loop from o to size of array
+        printf("%d ",s[i]);
+    }
+    printf("\n");                     //print array
+}
+
+void bsort(int s[], size_t N){         //function to sort an array
+    int i, j;                           // variable declaration
+    for (i = 0; i < N-1; i++)      
+        for (j = 0; j < N-i-1; j++)  
+            if (s[j] > s[j+1]){      //checking if jth position is  greater than j+1th position element in array
+                int t = s[j];       //swap if number is greater
+                s[j] = s[j+1];
+                s[j+1] = t;
+            }
+}
+int main(void) //main function 
+{
+int s[]={22,32,9,0,1,2,45,668,932,26,5,3,333,4,7}; // our data array
+size_t N=sizeof(s)/sizeof(int); // number of elements in s
+
+printf("the original data is:\n"); 
+dispArray(s, N);  //calling function disparray and passing vlues of s and n variables
+bsort(s, N);      //calling function bsort to sort the array 
+printf("the sorted data is:\n"); 
+dispArray(s, N);
+printf("bsort program complete.\n\n");
+
+return EXIT_SUCCESS;
+}
+
+
+//In this program we are using two functions, one is to print the array and the other one is to sort the array.
+
+
+
