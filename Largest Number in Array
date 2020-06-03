@@ -1,0 +1,25 @@
+#include<stdio.h>            //Header File
+#include<stdlib.h>
+#include"my_func.h"
+
+
+int find_largest_int(int s[], size_t N)		//function declaration with         int parameters array and its size
+{
+    int max = 0;					// int variable named max with initial value 0
+    for(int i=0;i<N;i++){		           	// using for loop to access array from start till the end
+        if(s[i]>max){			//using if to check number at i th position in an array is greater or not
+            max = s[i];			//if greater, save its value in max variable
+        }
+    }
+    return max;				//returning the value to max to the main function
+}
+int main(void)				// main function with no return type
+{
+int s[]={22,32,9,0,1,2,45,668,932,26,5,3,333,4,7}; // our data array
+size_t N=sizeof(s)/sizeof(int); // number of elements in s
+
+printf("The largest integer in the array is: %d\n", find_largest_int(s, N)); //printing the value
+printf("find_largest program complete.\n\n");
+
+return EXIT_SUCCESS; 	
+}
