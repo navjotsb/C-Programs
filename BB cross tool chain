@@ -1,0 +1,35 @@
+ssh 192.168.7.2 -1 debian //Login Beaglebone
+debian@192.168.7.2's password: // enter temppwd password for debian
+debian@beaglebone:~$ config-pin -l p2.08 // give privilege to user
+debian@beaglebone:~$ config-pin -l p2.08 // to list valid modes of p2.08
+debian@beaglebone:/sys/ class / gpio $ ls // show all folders in gpio
+debian @ beaglebone :/sys/ class / gpio $ cd gpio48 // directory change
+debian @ beaglebone :/sys/ class / gpio / gpio48 $ ls - l // show hidden folders
+debian @ beaglebone :/sys/ class / gpio / gpio48 $ cat label // to view contents of
+folder label
+debian @ beaglebone :/sys/ class / gpio / gpio48 $ config - pin - l p9_15 // valid modes
+of p9_15
+debian @ beaglebone : /sys/ class / gpio / gpio48 $ config - pin - i p9_15 in //
+additional details
+debian @ beaglebone :/sys/ class / gpio / gpio48 $ config - pin - q p9_15 // report
+config details
+debian @ beaglebone : /sys/ class / gpio / gpio48 $ cat
+sys / class / gpio / gpio60 / direction // view contents
+debian @ beaglebone : onfig-pin -a p9_15 out
+debian@beaglebone:/sys/ class / gpio / gpio48 $ config - pin - q p9_15
+debian @ beaglebone :/sys/ class / gpio / gpio48 $ ls // list
+debian @ beaglebone : /sys/ class / gpio / gpio48 $ cd
+debian @ beaglebone :/sys/ class / gpio $ ls
+debian @ beaglebone : /sys/ class / gpio $ cd
+gpio60veer @ ebb :/sys/ class / gpio / gpio60 $ ls - l
+debian @ beaglebone / sys / class / gpio / gpio60 $ cat label
+debian @ beaglebone : /sys/ class / gpio / gpio60 $ cat
+debian @ beaglebone :/sys/ class / gpio / gpio60 $ echo in > direction
+debian @ beaglebone :/sys/ class / gpio / gpio60 $ cat directionin
+debian @ beaglebone :/sys/ class / gpio / gpio60 $ echo out > direction // change
+direction
+debian @ beaglebone :/sys/ class / gpio / gpio60 $ cat directionout
+debian @ beaglebone :/sys/ class / gpio / gpio60 $ echo 1 > value // assign value
+debian @ beaglebone :/sys/ class / gpio / gpio60 $ echo 0 > value
+debian @ beaglebone : /sys/ class / gpio / gpio60 $ cat value
+debian @ beaglebone : /sys/ class / gpio / gpio60 $
