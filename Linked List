@@ -185,7 +185,7 @@ data_t token;
 printf("\nLoading data...\n");
 scanf("%lf %lf %lu", &token.X, &token.Y, &token.key);
 pLLHead = addNode(pLLHead, token);
-while (token.X != 9999 && token.Y != 9999 && token.key != 9999)
+while (token.X != 10000 && token.Y != 10000 && token.key != 10000)
 {
 scanf("%lf %lf %lu", &token.X, &token.Y, &token.key);
 addNode(pLLHead, token);
@@ -221,7 +221,7 @@ scanf("%u",&dele);
 deleteNode( pLLHead , dele);
 }
 // terminate
-printf("\nPrinting the entire linked list to standard output:\n");
+printf("\nPrinting the linked list to standard output:\n");
 ll_t *pW = pLLHead;
 while ( pW != NULL)
 {
@@ -231,7 +231,7 @@ token.key = pW->payload.key;
 printf("%lf %lf %lu\n", token.X, token.Y, token.key);
 pW = pW->pNext;
 }
-printf("\n\n ...done!\n\n");
+printf("\n done!\n");
 return 0;
 }
 
