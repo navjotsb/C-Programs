@@ -1,0 +1,7 @@
+$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib buildessentialchrpath socat cpio python python3 python3-pip python3-pexpect xzutilsdebianutils iputils-ping libsdl1.2-dev xterm
+$ sudo apt-get install xterm sed cvs subversion coreutils texi2html docbookutilspython-pysqlite2 help2man make gcc g++ desktop-file-utils libgl1-mesadevlibglu1-mesa-dev mercurial autoconf automake groff curl lzop asciidoc
+$ sudo apt-get install u-boot-toolsDownload Yocto$ git clone https://git.yoctoproject.org/git/pokyBuild Environment for your poky
+$ cd poky
+$ source oe-init-build-env
+$ cd conf/
+$ nano local.conf# to set up your local.conf, remove the # symbol from the head of the image name and save file.
