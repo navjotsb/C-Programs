@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+// using std::vector;
+// using std::cout;
+// using std::endl;
+// using std::cin;
+using namespace std;
+/*
+* main code begins
+*/
+int findMedian(vector <int> a, int n)
+{
+// First we sort the array
+sort(a.begin(), a.end());
+// check for even case
+if (n % 2 != 0)
+return a.at(n/2);
+return (a.at((n - 1) / 2) + a.at(n / 2)) / 2;
+}
+int main()
+{
+/* store integers in a vector from standard input */
+vector<int> myarr; // our container
+int token; // our container content variable
+cout << "Please enter some integers, followed by <CTRL><D>:" << endl;
+while (cin >> token) // loop exits when user enters <CTRL><D>
+{
+myarr.push_back(token);
+}
+cout << endl << endl;
+/* print integers from vector */
+cout << "Your integers are:" << endl;
+for (vector<int>::size_type j = 0; j != myarr.size(); ++j)
+{
+cout << myarr[j] << endl;
+}
+int init = 0;
+int min_ele = *min_element(myarr.begin(), myarr.end());
+int max_ele = *max_element(myarr.begin(), myarr.end());
+int avg = accumulate(myarr.begin(), myarr.end(), init)/myarr.size();
+int median = findMedian(myarr, myarr.size());
+sort(myarr.begin(), myarr.end());
+cout << endl << "Largest integer is: " << max_ele << endl;
+cout << "Smallest integer is: " << min_ele << endl;
+cout << "Average is: " << avg << endl;
+cout << "Median is: " << median << endl;
+cout << "Sorted vector integers are: " << endl;
+for (vector<int>::size_type j = 0; j != myarr.size(); ++j)
+{
+cout << myarr[j] << " ";
+}
+/* exit happily */
+return 0;
+}
