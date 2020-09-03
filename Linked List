@@ -1,0 +1,240 @@
+Code:
+
+#ifndef LL_H_
+#define LL_H_
+#include<stdlib.h>
+
+/************************************************************* * NODE STRUCT GOES HERE *************************************************************/
+// nodes can be referenced by a KEY, of this type
+Typedef unsigned int data_key_t;
+// nodes contain a PAYLOAD consisting of various elements and the key
+Struct data_struct
+{
+double X; double Y; data_key_t key;
+};
+Typedef struct data_struct data_t;
+// actual node struct/
+typedefstruct linkedList
+{
+data_t payload;
+struct linkedList *pNext; 
+// recursively defined "next" pointer
+};
+typedef struct linkedList ll_t;
+/************************************************************ * USEFUL LINKED LIST FUNCTIONS ************************************************************/
+/*
+ *
+ setPayload(): 
+* 
+* for the node pointed to by the first argument, this function 
+* sets the value of the node's payload to the function's 
+* second argument 
+* */
+void setPayload(ll_t*, data_t);
+/* * 
+createNode(): 
+*
+* creates a node of type ll_t from the heap, and returns 
+* a pointer to this newly created node; sets the node's own *pNext pointer to NULL; 
+* 
+*/ll_t* createNode(void);
+/*
+* addNode(): 
+* 
+* adds a new node (with payload given by second argument) to the 
+* bottom/back of the list referenced by the pointer, head; 
+* if head==NULL, a new list is created, and the new headpointer * is returned; 
+* 
+*/ll_t* addNode(ll_t*, data_t);
+/* 
+* insertNode(): 
+* 
+* for a list with head pointer given by the first argument,this 
+* function inserts a new node with payload given by the<second argument 
+* at the point just BEFORE the node whose key matches thethird 
+* argument; if head pointer returns NULL, a new list iscreated, and 
+* the new head pointer is returned; 
+* */ll_t* insertNode(ll_t*, data_t payload, data_key_t insertionPoint);
+/* * deleteNode(): * * for a list with head pointer given by the first argument,this * function deletes the node whose key data matches the second argument; * if head pointer returns NULL, an error is generated,indicating that 
+* the node is not found; 
+
+* */void deleteNode(ll_t*, data_key_t);
+#endif
+
+Source File:
+
+#include <stdlib.h>
+#include "ll.h"
+/* * setPayload(): */
+Void setPayload(ll_t* node, data_t payload)
+{ 
+node->payload.X = payload.X; 
+node->payload.Y = payload.Y; 
+node->payload.key = payload.key;
+}
+/* * createNode(): * */ll_t* createNode(void)
+{/* create a pointer for the new node */ll_t *node;/* allocate the node from heap */ node = (ll_t*) malloc(sizeof(struct linkedList));
+/* make next point to NULL */ 
+node->pNext = NULL; 
+/* return the pointer to the new node 
+*/return node;
+}
+/* * addNode(): * */ll_t* 
+addNode(ll_t *pHead, data_t payload)
+{
+/* create two node pointers 
+*/ll_t *pNode; ll_t *pW;
+/* prepare the new node to be added 
+*/ pNode = createNode(); 
+setPayload(pNode, payload); 
+/* set the new element's data field value */
+if (pHead == NULL) 
+{ 
+pHead = pNode; 
+/* if the linked list has no nodes to begin with*/ 
+}
+else 
+{
+/* search through list until tail node is found */ 
+pW = pHead;
+while ((pW->pNext) != NULL) 
+{ 
+pW = pW->pNext; 
+}
+
+/* set the pointer from NULL to temp */ 
+pW->pNext = pNode; 
+}
+return pNode;
+}
+/* * insertNode(): * */ll_t* 
+insertNode(ll_t *pHead, data_t payload, data_key_t insertionPoint)
+{
+ll_t *node; 
+// creating 3 node pointers
+ll_t *pw;
+ll_t *temp; 
+node = createNode(); 
+//creating a node to be inserted 
+setPayload(node, payload); 
+/* set the new element's data field value */
+if (pHead == NULL) 
+// condition to check if head exist 
+{ 
+pHead = node; 
+/* if the linked list has no nodes to begin with */ 
+}
+else 
+{ 
+pw = pHead;
+size_t i = 1;
+/* search through list until insertion point is found */​
+while ( i < insertionPoint) { pw = pw->pNext; i++; }
+/* save the pointer to next node in temp */ 
+temp = pw->pNext; 
+/*next if current node is used to point to node to be inserted*/ 
+pw->pNext = node; 
+/* save pnext(before adding node) to pnext of added node*/
+ node->pNext = temp; 
+}
+return node;
+}
+/* * deleteNode(): * */
+Void deleteNode(ll_t *pHead, data_key_t nodeToDeleteKey)
+{
+ll_t *pw; 
+// creating 2 node pointers
+ll_t *temp;
+if(pHead == NULL) 
+// error statement if head exist 
+{
+printf("not valid use of delete node, list is empty"); }
+else 
+{
+pw = pHead; 
+}
+size_t i =1; 
+// looping through list to point of delete node
+while ( i < nodeToDeleteKey) 
+{ 
+pw = pw->pNext;
+ i++; 
+} 
+/* next pointer is saved so that it can be used to point to next node after deletion of node*/ 
+temp = pw->pNext;
+free(pw->pNext); 
+//free the next node pointer 
+pw->pNext = temp->pNext;
+ /* using next pointer(of node before the deleted node)to point to node next to the deleted node*/
+return;
+}
+
+Main File
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "ll.h"
+int main(void)
+{
+ll_t *pLLHead = NULL; // pointer to list, must be initialized to
+NULL
+data_t token;
+// create the linked list from standard input;
+// user indicates end of data by entering "9999"
+// for X, Y and key values.
+printf("\nLoading data...\n");
+scanf("%lf %lf %lu", &token.X, &token.Y, &token.key);
+pLLHead = addNode(pLLHead, token);
+while (token.X != 9999 && token.Y != 9999 && token.key != 9999)
+{
+scanf("%lf %lf %lu", &token.X, &token.Y, &token.key);
+addNode(pLLHead, token);
+}
+printf(" ... done.\n\n");
+// check if you want to insert a node
+printf("press 0 if you want to insert node\n");
+int yes = 1;
+scanf("%d",&yes);
+// statement if you want to insert
+if(yes == 0)
+{
+/* asking user for point of insertion and then inserting the
+Node at that point*/
+data_key_t point;
+printf("enter where you want to insert node:\n");
+scanf("%u", &point);
+printf("add insert node payload data:\n");
+scanf("%lf %lf %lu", &token.X, &token.Y, &token.key);
+insertNode(pLLHead, token,point);
+}
+// checking if you want to delete a node or not
+printf("press 0 if you want to delete node\n");
+scanf("%d",&yes);
+// statement if you want to delete the node
+if(yes == 0)
+{
+/* asking the user which node to delete and then deleting
+that node*/
+data_key_t dele;
+printf("enter which node do you want to delete:\n");
+scanf("%u",&dele);
+deleteNode( pLLHead , dele);
+}
+// terminate
+printf("\nPrinting the entire linked list to standard output:\n");
+ll_t *pW = pLLHead;
+while ( pW != NULL)
+{
+token.X = pW->payload.X;
+token.Y = pW->payload.Y;
+token.key = pW->payload.key;
+printf("%lf %lf %lu\n", token.X, token.Y, token.key);
+pW = pW->pNext;
+}
+printf("\n\n ...done!\n\n");
+return 0;
+}
+
+
+
+
